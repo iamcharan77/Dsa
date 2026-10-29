@@ -1,0 +1,31 @@
+#include <stdio.h>
+int fact(int n);
+int f=1,n,temp;
+void main()
+{
+          printf("Enter the element who's factorial is needed\t");
+          scanf("%d",&n);
+          if(n==0||n==1)
+          {
+                    printf("The factorial of %d is 1\n",n);
+          }          
+          else
+          {
+                    temp=n;
+                    f=fact(n);
+                    printf("The factorial of %d is %d\n",temp,f);
+          }
+
+}
+int fact(int n)
+{
+          if (n!=0)
+          {
+                    f=f*n;
+                    fact(n-1);
+          }
+          else
+          {
+                    return(f);
+          }
+}
