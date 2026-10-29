@@ -1,0 +1,20 @@
+#include <stdio.h>
+int count=0;
+int n,source,temp,dest;
+void tower(int n,char source,char temp,char dest)
+{
+          if (n==0)
+              return;
+          tower(n-1,source,temp,dest);
+          count++;
+          printf("Move %d disk form %d to %d\n",n,source,dest);
+          tower(n-1,source,temp,dest);
+}
+int main()
+{       
+          printf("enter number of disks:\t");
+          scanf("%d",&n);
+          tower(n,'A','B','C');
+          printf("Total number of moves required to move %d disks is %d\n",n,count);
+          return 0;
+}
