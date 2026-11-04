@@ -1,7 +1,11 @@
 
 #include<stdio.h>
 #define MAX 5
-int TOP=-1,stack[4],choice,value;
+int TOP=-1,stack[MAX-1],choice,value;
+void push(int value);
+void pop();
+void display();
+void peek();
 void main()
 { 
          do
@@ -11,21 +15,21 @@ void main()
                     scanf("%d",&choice);
                     switch(choice)
                     {
-                              case 1:display(stack[4]);
+                              case 1:display();
                                      break;
-                              case 2:push();
+                              case 2:printf("Enter the elements: ");
+                                     scanf("%d",&value);
+                                     push(value);
                                      break;
                               case 3:pop();
                                      break;
                               case 4:peek();
                                      break;
-                              case 5:exit(0);
-                                     break;
-                              default:exit(0);        
+                              default:exit(0); 
                     }
          } while(choice<5 && choice>0);
 }
-void push()
+void push(int value)
 {
           if(MAX==TOP)
           {
@@ -33,12 +37,11 @@ void push()
           }
           else
           {
-          printf("Enter the elements: ");
-          scanf("%d",&value);
+        
           stack[++TOP]=value;                                                                                
           }
 }
-int pop()
+void pop()
 {
           if(TOP==-1)
           {
@@ -46,14 +49,14 @@ int pop()
           }
           else
           {
-                    return(--TOP);
+                    TOP--;
           }
 }
 void display()
 {
           if(TOP==-1)
           {
-                    printf("stack is empty");
+                    printf("stack is empty\n");
           }
           else
           {
@@ -66,5 +69,13 @@ void display()
 }
 void peek()
 {
-
+               if(TOP==-1)
+               {
+                       printf("stack is empty");
+               }
+               else
+               {
+                       printf("%d\n",stack[TOP]);
+               }
 }
+
